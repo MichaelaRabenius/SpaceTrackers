@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Vuforia;
 
 public class getCameraPostion : MonoBehaviour {
 	//Variables
@@ -35,37 +36,38 @@ public class getCameraPostion : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
+		
 		/*ROTATION*/
 		//Get rotation from VRCamera and convert it to euler angles
-		/*sVRCameraRot = VRCamera.transform.rotation;
-		Vector3 VREulerRot = VRCameraRot.eulerAngles;
+		/*VRCameraRot = VRCamera.transform.rotation;
 
 		//Checks if the rotation is bigger than a value to stop jittering
 		if (checkAngle (VRCameraPrevRot.eulerAngles, VRCameraRot.eulerAngles)) {
 			//Removes x and z rotation
-			VRCameraRot = Quaternion.Euler (90f, VREulerRot.y, 0f );
+			Vector3 newRotation = new Vector3(90f, VRCameraRot.eulerAngles.y, 0f );
 			//Interpolates between old rotation and new rotation
-			float rTime = 2f*Mathf.Abs (VRCameraPrevRot.eulerAngles.y - VRCameraRot.eulerAngles.y);
-			sceneCamera.transform.rotation = Quaternion.Slerp(VRCameraPrevRot, VRCameraRot, Time.deltaTime * rTime);
-			//Update previous rotation
-			VRCameraPrevRot = VRCameraRot;
-		}*/
-
+			cameraRot = sceneCamera.transform.rotation;
+			sceneCamera.transform.rotation = Quaternion.Slerp(cameraRot, Quaternion.Euler(newRotation), Time.deltaTime*5f);
+		}
+		//Update previous rotation
+		VRCameraPrevRot = VRCameraRot;
+		*/
 		/*POSITION*/
 		//Get VRCamera position
 		VRCameraPos = VRCamera.transform.position;
 
+
 		//Checks if the distance moved is bigger than a value to stop jittering
 		if (checkDistance (VRCameraPrevPos, VRCameraPos)) {
-			//Move with the CameraSpeed
-			VRCameraPos.Set (VRCameraPos.x*CameraSpeed, cameraHeight, VRCameraPos.z*CameraSpeed);
+			//Move with the CameraSpeed and set height
+			Vector3 newCameraPos = new Vector3(VRCameraPos.x*CameraSpeed, cameraHeight, VRCameraPos.z*CameraSpeed);
 			//Interpolate between old and new position
-			sceneCamera.transform.position = Vector3.Lerp(VRCameraPrevPos, VRCameraPos, Time.deltaTime*5f);
+			cameraPos = sceneCamera.transform.position;
+			cameraPos.Set (cameraPos.x, cameraHeight, cameraPos.z);
+			sceneCamera.transform.position = Vector3.Slerp(cameraPos, newCameraPos, Time.deltaTime*2f);
+		}
 			//Update previous position
 			VRCameraPrevPos = VRCameraPos;
-		}
-	
 
 	}
 
@@ -73,12 +75,13 @@ public class getCameraPostion : MonoBehaviour {
 	bool checkAngle(Vector3 prevAngle, Vector3 newAngle){
 		/*Variables*/
 		bool angleLarger = false;
-		float angleLimit = 5f;
+		float angleLimit = 2f;
 		//Calculate the angle of rotation
 		float deltaAngle = Mathf.Abs (prevAngle.y - newAngle.y);
+		print (deltaAngle);
 
 		//If angle is larger than limit return true
-		if (deltaAngle > angleLimit && deltaAngle < 180) {
+		if (deltaAngle > angleLimit) {
 			return angleLarger = true;
 		}
 
@@ -89,9 +92,10 @@ public class getCameraPostion : MonoBehaviour {
 	bool checkDistance(Vector3 prevPos, Vector3 newPos){
 		/*Variables*/
 		bool distLarger = false;
-		float distLimit = 8f;
+		float distLimit = 0.005f;
 		//Calculate distance between two positions
-		float deltaDist = Mathf.Abs (Mathf.Pow ((prevPos.x - newPos.y), 2) + Mathf.Pow ((prevPos.z - newPos.z), 2));
+		float deltaDist = Mathf.Abs(Mathf.Pow((prevPos.x - newPos.x),2) + Mathf.Pow((prevPos.z - newPos.z),2));
+
 
 		if ( deltaDist > distLimit) {
 			return distLarger = true;
@@ -100,4 +104,6 @@ public class getCameraPostion : MonoBehaviour {
 		return distLarger;
 
 	}
+
+
 }
