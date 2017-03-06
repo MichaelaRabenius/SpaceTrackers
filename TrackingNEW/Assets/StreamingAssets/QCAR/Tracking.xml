@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="stones" size="21.000000 14.004408" />
+    <ImageTarget name="masterTracker" size="1.000000 0.696883" />
+    <ImageTarget name="MultiMarkerDuo" size="1.000000 1.000000" />
+    <ImageTarget name="king" size="1.000000 1.592920" />
+  </Tracking>
+</QCARConfig>
