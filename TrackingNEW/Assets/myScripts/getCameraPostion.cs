@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Vuforia;
 
-public class getCameraPostion : MonoBehaviour {
-	//Variables
+public class getCameraPostion : MonoBehaviour{
+	/*VARIABLES*/
 	private float cameraHeight = 200f;
 	private float CameraSpeed = 15f;
 
@@ -30,7 +30,6 @@ public class getCameraPostion : MonoBehaviour {
 		//Disable the VRCamera to show the sceneCamera feed
 		VRCamera.enabled = false;
 		sceneCamera.enabled = true;
-
 		
 	}
 
@@ -52,6 +51,8 @@ public class getCameraPostion : MonoBehaviour {
 		//Update previous rotation
 		VRCameraPrevRot = VRCameraRot;
 		*/
+
+
 		/*POSITION*/
 		//Get VRCamera position
 		VRCameraPos = VRCamera.transform.position;
@@ -74,7 +75,6 @@ public class getCameraPostion : MonoBehaviour {
 	//Function checking if the difference between two angles are greater than a value
 	bool checkAngle(Vector3 prevAngle, Vector3 newAngle){
 		/*Variables*/
-		bool angleLarger = false;
 		float angleLimit = 2f;
 		//Calculate the angle of rotation
 		float deltaAngle = Mathf.Abs (prevAngle.y - newAngle.y);
@@ -82,28 +82,26 @@ public class getCameraPostion : MonoBehaviour {
 
 		//If angle is larger than limit return true
 		if (deltaAngle > angleLimit) {
-			return angleLarger = true;
+			return true;
 		}
 
-		return angleLarger;
+		return false;
 	}
 
 	//Function checking distance between two positions
 	bool checkDistance(Vector3 prevPos, Vector3 newPos){
 		/*Variables*/
-		bool distLarger = false;
-		float distLimit = 0.005f;
+		float distLimit = 0.00f;
 		//Calculate distance between two positions
 		float deltaDist = Mathf.Abs(Mathf.Pow((prevPos.x - newPos.x),2) + Mathf.Pow((prevPos.z - newPos.z),2));
 
 
 		if ( deltaDist > distLimit) {
-			return distLarger = true;
+			return true;
 		}
 
-		return distLarger;
+		return false;
 
 	}
-
-
+		
 }
