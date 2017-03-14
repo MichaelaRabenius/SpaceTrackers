@@ -5,15 +5,14 @@ using UnityEngine.Networking;
 
 public class KandNetworkManager : NetworkBehaviour {
 
-	public GameManager gameManager;
-
 	public int port = 7777;
 	private string serverIp;
 
 	// START Server part
 	public void HostGame() {
-		// Start server
 		bool useNat = !Network.HavePublicAddress ();
+
+		// Start server
 		Network.InitializeServer(8, port, useNat);
 
 		Debug.Log ("Server has been initialized");
@@ -28,15 +27,18 @@ public class KandNetworkManager : NetworkBehaviour {
 	// END Server part
 
 	// START Client part
-	public void JoinServer(string sIP) {
+	public void ConnectToServer(string sIP) {
 		serverIp = sIP;
+
 		Network.Connect (serverIp, port);
 
 		Debug.Log ("Connecting to: " + serverIp);
 	}
 
-	public void OnFailedToConnect(NetworkConnectionError error) {
-		Debug.Log("Could not connect to server: " + error);
+	public void DisconnectFromServer() {
+		Network.CloseConnection (Network.connections [0], false);
+
+		Debug.Log ("Disconnecting from: " + serverIp);
 	}
 
 	public void OnConnectedToServer() {

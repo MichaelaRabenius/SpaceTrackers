@@ -55,24 +55,21 @@ public class GameManager : MonoBehaviour {
 		string ip = kandNetworkManager.GetHostingIP ();
 		serverLabel.text = ip;
 	}
-
-	public void ShutdownServer() {
-		// Shutdown server
-		kandNetworkManager.ShutdownServer ();
-	}
 	// END Server part
 
 	// START Client part
 	public void JoinGame() {
 		string serverInput = inputJoinGameServer.text;
-		kandNetworkManager.JoinServer (serverInput);
+		kandNetworkManager.ConnectToServer (serverInput);
 
 		ShowMenu (connectingMenu);
 	}
 
 	public void OnFailedToConnect(NetworkConnectionError error) {
-		if (kandNetworkManager.isClient)
-			ShowMenu (joinGameMenu);
+		Debug.Log("Could not connect to server: " + error);
+
+		if (!kandNetworkManager.isServer)
+			ShowMenu(joinGameMenu);
 	}
 
 	public void OnConnectedToServer() {
