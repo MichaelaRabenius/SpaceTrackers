@@ -1,17 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Vuforia;
+//using Vuforia;
 
 public class getCameraPostion : MonoBehaviour{
 	/*VARIABLES*/
-	private float cameraHeight = 200f;
+	private float cameraHeight = 200;
 	private float CameraSpeed = 15f;
+	private bool isTracking = false;
 
 	//VRCamera variables
 	private Camera VRCamera;
 	private Vector3 VRCameraPos;
 	private Vector3 VRCameraPrevPos;
+	private Vector3 newCameraPos;
 	private Quaternion VRCameraPrevRot;
 	private Quaternion VRCameraRot;
 
@@ -30,56 +32,70 @@ public class getCameraPostion : MonoBehaviour{
 		//Disable the VRCamera to show the sceneCamera feed
 		VRCamera.enabled = false;
 		sceneCamera.enabled = true;
+	
 		
 	}
 
 	// Update is called once per frame
 	void Update () {
-		
-		/*ROTATION*/
-		//Get rotation from VRCamera and convert it to euler angles
-		/*VRCameraRot = VRCamera.transform.rotation;
-
-		//Checks if the rotation is bigger than a value to stop jittering
-		if (checkAngle (VRCameraPrevRot.eulerAngles, VRCameraRot.eulerAngles)) {
-			//Removes x and z rotation
-			Vector3 newRotation = new Vector3(90f, VRCameraRot.eulerAngles.y, 0f );
-			//Interpolates between old rotation and new rotation
-			cameraRot = sceneCamera.transform.rotation;
-			sceneCamera.transform.rotation = Quaternion.Slerp(cameraRot, Quaternion.Euler(newRotation), Time.deltaTime*5f);
-		}
-		//Update previous rotation
-		VRCameraPrevRot = VRCameraRot;
-		*/
-
-
-		/*POSITION*/
+		//Get the tracking state from the ImageTarget component
+		isTracking = GameObject.Find("ImageTarget").GetComponent<trackingState>().isTracking;
+			
+		/*******CAMERA MOVEMENT*******/
 		//Get VRCamera position
 		VRCameraPos = VRCamera.transform.position;
+		//Get VRCamera Rotation
+		VRCameraRot = VRCamera.transform.rotation;
 
+		print ("Local: "+sceneCamera.transform.localRotation);
+		print ("World: "+sceneCamera.transform.rotation);
+		print ("---------------------");
 
-		//Checks if the distance moved is bigger than a value to stop jittering
-		if (checkDistance (VRCameraPrevPos, VRCameraPos)) {
-			//Move with the CameraSpeed and set height
-			Vector3 newCameraPos = new Vector3(VRCameraPos.x*CameraSpeed, cameraHeight, VRCameraPos.z*CameraSpeed);
-			//Interpolate between old and new position
-			cameraPos = sceneCamera.transform.position;
-			cameraPos.Set (cameraPos.x, cameraHeight, cameraPos.z);
-			sceneCamera.transform.position = Vector3.Slerp(cameraPos, newCameraPos, Time.deltaTime*2f);
-		}
+		if (!isTracking) {
+			VRCameraRot = VRCameraPrevRot;
+			
+		} else {
+			/*******POSITION*******/
+			//Checks if the distance moved is bigger than a value to stop jittering
+			if (checkDistance (VRCameraPrevPos, VRCameraPos)) {//KANSKE INTE BEHÖVS
+				//Move with the CameraSpeed and set height
+				newCameraPos = new Vector3 (VRCameraPos.x * CameraSpeed, cameraHeight, VRCameraPos.z * -CameraSpeed);
+				//Interpolate between old and new position
+				cameraPos = sceneCamera.transform.position;
+				cameraPos.Set (cameraPos.x, cameraHeight, cameraPos.z);
+				sceneCamera.transform.position = Vector3.Lerp (cameraPos, newCameraPos, Time.deltaTime * 3f);
+			}
 			//Update previous position
 			VRCameraPrevPos = VRCameraPos;
 
+			/*******ROTATION*******/
+			//Checks if the rotation is bigger than a value to stop jittering
+			if (checkAngle (VRCameraPrevRot.eulerAngles, VRCameraRot.eulerAngles)) {//KANSKE INTE BEHÖVS
+				//Convert camera rotaion to degrees
+				Vector3 VRCameraRotEuler = VRCameraRot.eulerAngles;
+				//Remove x & z rotation
+				VRCameraRotEuler.Set(90f, VRCameraRotEuler.y, 0f);
+				Quaternion newRotaion = Quaternion.Euler (VRCameraRotEuler);
+
+				Quaternion currentRot = sceneCamera.transform.rotation;
+
+				sceneCamera.transform.rotation = Quaternion.Slerp (currentRot, newRotaion, Time.deltaTime * 5f);
+			}
+
+			//Update previous rotation
+			VRCameraPrevRot = VRCameraRot;
+		}
 	}
+
+	/******FUNCTIONS******/
 
 	//Function checking if the difference between two angles are greater than a value
 	bool checkAngle(Vector3 prevAngle, Vector3 newAngle){
 		/*Variables*/
-		float angleLimit = 2f;
+		float angleLimit = 0f;
 		//Calculate the angle of rotation
 		float deltaAngle = Mathf.Abs (prevAngle.y - newAngle.y);
-		print (deltaAngle);
-
+	
 		//If angle is larger than limit return true
 		if (deltaAngle > angleLimit) {
 			return true;

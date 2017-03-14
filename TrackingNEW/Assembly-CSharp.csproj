@@ -81,9 +81,10 @@
      <Compile Include="Assets\Vuforia\Scripts\WireframeBehaviour.cs" />
      <Compile Include="Assets\Vuforia\Scripts\WireframeTrackableEventHandler.cs" />
      <Compile Include="Assets\Vuforia\Scripts\WordBehaviour.cs" />
-     <Compile Include="Assets\myScripts\cameraController.cs" />
+     <Compile Include="Assets\myScripts\cameraMovement.cs" />
+     <Compile Include="Assets\myScripts\cameraRotation.cs" />
      <Compile Include="Assets\myScripts\getCameraPostion.cs" />
-     <Compile Include="Assets\myScripts\planeMaterial.cs" />
+     <Compile Include="Assets\myScripts\trackingState.cs" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\Vuforia\Shaders\ColoredLines.shader" />
      <None Include="Assets\link.xml" />
