@@ -72,29 +72,7 @@ public class cameraMovement : MonoBehaviour{
 			//Update previous position
 			VRCameraPrevPos = VRCameraPos;
 
-			/*******ROTATION*******/
-			/*
-			//Checks if the rotation is bigger than a value to stop jittering
-			if (checkAngle (VRCameraPrevRot.eulerAngles, VRCameraRot.eulerAngles, 0f)) {//KANSKE INTE BEHÖVS
-				//Convert camera rotaion to degrees
-				Vector3 VRCameraRotEuler = VRCameraRot.eulerAngles;
-				//Remove x & z rotation
-				VRCameraRotEuler.Set (90f, VRCameraRotEuler.y, 0f);
-				Quaternion newRotaion = Quaternion.Euler (VRCameraRotEuler);
-			
-				Quaternion currentRot = sceneCamera.transform.localRotation;
-
-				sceneCamera.transform.localRotation = Quaternion.Lerp (currentRot, newRotaion, Time.deltaTime * 2f);
-			}
-
-			//Update previous rotation
-			VRCameraPrevRot = VRCameraRot;*/
-
-
-			//Test2
-			//sceneCamera.transform.Rotate(0, -Input.gyro.rotationRateUnbiased.y,0); 
-			//float rot = VRCamera.transform.rotation.eulerAngles.y;
-			//sceneCamera.transform.localRotation = Quaternion.Lerp(sceneCamera.transform.localRotation,Quaternion.Euler (new Vector3 (90f, rot, 0f)), Time.deltaTime*3f);
+		
 		}
 	}
 

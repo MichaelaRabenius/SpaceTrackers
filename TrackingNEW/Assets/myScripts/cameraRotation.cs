@@ -19,7 +19,8 @@ public class cameraRotation : MonoBehaviour
 	private Quaternion baseOrientationRotationFix =  Quaternion.identity;
 
 	private Quaternion referanceRotation = Quaternion.identity;
-	private bool debug = true;
+
+	private Quaternion rotateDown = Quaternion.identity;
 
 	#endregion
 
@@ -34,62 +35,27 @@ public class cameraRotation : MonoBehaviour
 	{
 		if (!gyroEnabled)
 			return;
+		
+		//Calculate the rotation with the help of gyro
 		Quaternion tempQuat = cameraBase * (ConvertRotation (referanceRotation * Input.gyro.attitude) * GetRotFix ());
-		Vector3 tempRot = tempQuat.eulerAngles;
-		tempRot.Set (90, 0, tempRot.z);
-		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(tempRot), lowPassFilterFactor);
-	}
 
-	protected void OnGUI()
-	{
-		GUI.color = Color.red;
-		if (!debug)
-			return;
+		//Create the quaternion to only allow yaw (y-axis)
+		tempQuat[0] = 0;
+		tempQuat [2] = 0;
+		float mag = Mathf.Sqrt (tempQuat [3] * tempQuat [3] + tempQuat [1] * tempQuat [1]);
+		tempQuat [1] /= mag;
+		tempQuat [3] /= mag;
 
-		GUILayout.Label("Orientation: " + Screen.orientation);
-		GUILayout.Label("Calibration: " + calibration);
-		GUILayout.Label("Camera base: " + cameraBase);
-		GUILayout.Label("input.gyro.attitude: " + Input.gyro.attitude);
-		GUILayout.Label("transform.rotation: " + transform.rotation);
-		GUILayout.Label ("Device rotation" + transform.rotation.eulerAngles);
+		//Create the quaternion to pitch 90 degrees, (x-axis)
+		rotateDown [0] = Mathf.Sqrt (0.5f);
+		rotateDown [3] = Mathf.Sqrt (0.5f);
 
-		if (GUILayout.Button("On/off gyro: " + Input.gyro.enabled, GUILayout.Height(100)))
-		{
-			Input.gyro.enabled = !Input.gyro.enabled;
-		}
+		//Multiply the quaternions to apply the rotations
+		tempQuat *= rotateDown;
 
-		if (GUILayout.Button("On/off gyro controller: " + gyroEnabled, GUILayout.Height(100)))
-		{
-			if (gyroEnabled)
-			{
-				DetachGyro();
-			}
-			else
-			{
-				AttachGyro();
-			}
-		}
-
-		if (GUILayout.Button("Update gyro calibration (Horizontal only)", GUILayout.Height(80)))
-		{
-			UpdateCalibration(true);
-		}
-
-		if (GUILayout.Button("Update camera base rotation (Horizontal only)", GUILayout.Height(80)))
-		{
-			UpdateCameraBaseRotation(true);
-		}
-
-		if (GUILayout.Button("Reset base orientation", GUILayout.Height(80)))
-		{
-			ResetBaseOrientation();
-		}
-
-		if (GUILayout.Button("Reset camera rotation", GUILayout.Height(80)))
-		{
-			transform.rotation = Quaternion.identity;
-		}
-	}
+		//Apply the transformation to the camera
+		transform.rotation = Quaternion.Slerp(transform.rotation, tempQuat, lowPassFilterFactor);
+	}		
 
 	#endregion
 
@@ -100,6 +66,7 @@ public class cameraRotation : MonoBehaviour
 	/// </summary>
 	private void AttachGyro()
 	{
+		Input.gyro.enabled = !Input.gyro.enabled;
 		gyroEnabled = true;
 		ResetBaseOrientation();
 		UpdateCalibration(true);
@@ -192,22 +159,7 @@ public class cameraRotation : MonoBehaviour
 	/// </returns>
 	private Quaternion GetRotFix()
 	{
-		#if UNITY_3_5
-		if (Screen.orientation == ScreenOrientation.Portrait)
 		return Quaternion.identity;
-
-		if (Screen.orientation == ScreenOrientation.LandscapeLeft || Screen.orientation == ScreenOrientation.Landscape)
-		return landscapeLeft;
-
-		if (Screen.orientation == ScreenOrientation.LandscapeRight)
-		return landscapeRight;
-
-		if (Screen.orientation == ScreenOrientation.PortraitUpsideDown)
-		return upsideDown;
-		return Quaternion.identity;
-		#else
-		return Quaternion.identity;
-		#endif
 	}
 
 	/// <summary>
@@ -224,10 +176,7 @@ public class cameraRotation : MonoBehaviour
 	/// </summary>
 	private void RecalculateReferenceRotation()
 	{
-		Quaternion temp = Quaternion.Inverse(baseOrientation)*Quaternion.Inverse(calibration);
-		Vector3 tempRot = temp.eulerAngles;
-		tempRot.Set (90, 0, tempRot.z);
-		referanceRotation = Quaternion.Euler (tempRot);
+		referanceRotation = Quaternion.Inverse(baseOrientation)*Quaternion.Inverse(calibration);
 	}
 
 	#endregion
