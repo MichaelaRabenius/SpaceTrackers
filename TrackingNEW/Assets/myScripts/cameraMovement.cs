@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Vuforia;
 
 public class cameraMovement : MonoBehaviour{
 	/*VARIABLES*/
@@ -8,21 +9,18 @@ public class cameraMovement : MonoBehaviour{
 	private float CameraSpeed = 15f;
 	private bool isTracking = false;
 
-
 	//CameraMovement/holder of camera variables
 	public GameObject camMovement;
 	private Vector3 cameraPos;
 
 	//GameCamera variables
 	public Camera sceneCamera;
-	private Quaternion cameraRot;
 
 	//VRCamera variables
 	private Camera VRCamera;
 	private Vector3 VRCameraPos;
 	private Vector3 VRCameraPrevPos;
 	private Vector3 newCameraPos;
-	private Quaternion VRCameraPrevRot;
 	private Quaternion VRCameraRot;
 
 
@@ -32,7 +30,6 @@ public class cameraMovement : MonoBehaviour{
 		//Set camera pos/rot first time
 		VRCamera = Camera.main; 
 		VRCameraPrevPos = VRCamera.transform.position;
-		VRCameraPrevRot = VRCamera.transform.rotation;
 	
 
 		//Disable the VRCamera to show the sceneCamera feed
@@ -49,13 +46,10 @@ public class cameraMovement : MonoBehaviour{
 		/*******CAMERA MOVEMENT*******/
 		//Get VRCamera position
 		VRCameraPos = VRCamera.transform.position;
-		//Get VRCamera Rotation
 		VRCameraRot = VRCamera.transform.rotation;
-		print ("sceneCam" + sceneCamera.transform.localRotation.eulerAngles);
-
 
 		if (!isTracking) {
-			VRCameraRot = VRCameraPrevRot;
+			
 
 		} else {
 			/*******POSITION*******/
@@ -63,7 +57,9 @@ public class cameraMovement : MonoBehaviour{
 			//if (checkDistance (VRCameraPrevPos, VRCameraPos, 0f)) {//KANSKE INTE BEHÖVS
 
 			//Move with the CameraSpeed and set height
-			newCameraPos = new Vector3 (VRCameraPos.x * CameraSpeed, cameraHeight, VRCameraPos.z * -CameraSpeed);
+
+			Vector2 cameraDirection = calculateCameraDirection (VRCameraRot, VRCameraPos);
+			newCameraPos = new Vector3 (cameraDirection.x * CameraSpeed, cameraHeight, cameraDirection.y * -CameraSpeed);
 			//Interpolate between old and new position
 			cameraPos = camMovement.transform.position;
 			cameraPos.Set (cameraPos.x, cameraHeight, cameraPos.z);
@@ -75,22 +71,15 @@ public class cameraMovement : MonoBehaviour{
 		
 		}
 	}
-
-	/******FUNCTIONS******/
-	//Function checking if the difference between two angles is greater than a value
-	bool checkAngle(Vector3 prevAngle, Vector3 newAngle, float angleLimit){
-
-		//Calculate the angle of rotation
-		float deltaAngle = Mathf.Abs (prevAngle.y - newAngle.y);
-
-		//If angle is larger than limit return true
-		if (deltaAngle > angleLimit) {
-			return true;
-		}
-
-		return false;
+	private GUIStyle mStyle = new GUIStyle();
+	protected void OnGUI(){
+		mStyle.fontSize = 50;
+		mStyle.normal.textColor = Color.red;
+		GUILayout.Label("ROT" + VRCamera.transform.rotation.eulerAngles, mStyle);
 	}
 
+
+	/******FUNCTIONS******/
 	//Function checking if the difference in distance between two positions greater than a value
 	bool checkDistance(Vector3 prevPos, Vector3 newPos, float distLimit){
 		//Calculate distance between two positions
@@ -103,6 +92,77 @@ public class cameraMovement : MonoBehaviour{
 
 		return false;
 
+	}
+
+	//Function recalculate the cameraspeed direction depening on the angle the camera is tracking the marker
+	Vector2 calculateCameraDirection(Quaternion cameraRot, Vector3 cameraPos){
+		//Variables
+		Quaternion [] constantAngles = new Quaternion[4];
+		constantAngles[0] = Quaternion.identity;
+		constantAngles[1] = Quaternion.Euler (0, 90, 0);
+		constantAngles[2] = Quaternion.Euler (0, 180, 0);
+		constantAngles[3] = Quaternion.Euler (0, 270, 0);
+
+		Vector2 resultDirection = new Vector2();
+
+		//Remove x and z rotation from camera
+		Quaternion tempRot = cameraRot;
+		tempRot [0] = 0;
+		tempRot [2] = 0;
+		float mag = Mathf.Sqrt (tempRot [3] * tempRot [3] + tempRot [1] * tempRot [1]);
+		tempRot [1] /= mag;
+		tempRot [3] /= mag;
+
+		//Variable to hold the difference between angles
+		float [] differenceAngles = new float[4];
+
+		//Calculate the difference between angles
+		for (int i = 0; i < 4; i++) {
+			differenceAngles [i] = Quaternion.Angle (tempRot, constantAngles [i]);
+
+		}
+		//Get the index of the angle with the smallest angle between the camera and the target
+		int index = lowestIndex (differenceAngles);
+	
+
+		//Chose the right configuration for the calculated angle
+		switch (index) {
+		case 0:
+			resultDirection.x = -cameraPos.z;
+			resultDirection.y = cameraPos.x;
+			break;
+		case 1:
+			resultDirection.x = -cameraPos.x;
+			resultDirection.y = -cameraPos.z;
+			break;
+		case 2:
+			resultDirection.x = cameraPos.z;
+			resultDirection.y = -cameraPos.x;
+			break;
+		case 3:
+			resultDirection.x = cameraPos.x;
+			resultDirection.y = cameraPos.z;
+			break;
+		default:
+			print ("Error getting camera direction!");
+			break;
+		}
+
+		return resultDirection;
+
+	}
+
+	int lowestIndex(float[] values){
+		float lowestVal = values [0];
+		float lowestIndex = 0;
+
+		for (int i = 1; i < values.Length; i++) {
+			if (values [i] < lowestVal) {
+				lowestVal = values [i];
+				lowestIndex = i;
+			}
+		}
+		return (int)lowestIndex;
 	}
 
 }

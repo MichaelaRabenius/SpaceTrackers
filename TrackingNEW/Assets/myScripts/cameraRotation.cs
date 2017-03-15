@@ -65,8 +65,10 @@ public class cameraRotation : MonoBehaviour
 	/// Attaches gyro controller to the transform.
 	/// </summary>
 	private void AttachGyro()
-	{
+	{	
+		//Enables gyro
 		Input.gyro.enabled = !Input.gyro.enabled;
+	
 		gyroEnabled = true;
 		ResetBaseOrientation();
 		UpdateCalibration(true);
