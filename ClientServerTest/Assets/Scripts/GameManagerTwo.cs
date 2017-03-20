@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour {
+public class GameManagerTwo : MonoBehaviour {
 
-	public static GameManager Instance {set; get;}
+	public static GameManagerTwo Instance {set; get;}
 
-	public KandNetworkManager kandNetworkManager;
+	public NetworkManagerScript networkManager;
 
 	public GameObject mainMenu;
 
@@ -30,12 +30,12 @@ public class GameManager : MonoBehaviour {
 		// If host server menu
 		if (hostServerMenu.activeInHierarchy) {
 			Text connectionsCountLabel = GameObject.FindGameObjectWithTag ("ConnectionsCount").GetComponent<Text> ();
-			connectionsCountLabel.text = "Connections: " + kandNetworkManager.GetConnectionsCount ();
+			connectionsCountLabel.text = "Connections: " + networkManager.GetConnectionsCount ();
 		}
 
 		if (lobbyMenu.activeInHierarchy) {
-			Text playerNameLabel = GameObject.FindGameObjectWithTag ("PlayerName").GetComponent<Text> ();
-			playerNameLabel.text = kandNetworkManager.GetPlayerName ();
+			//Text playerNameLabel = GameObject.FindGameObjectWithTag ("PlayerName").GetComponent<Text> ();
+			//playerNameLabel.text = kandNetworkManager.GetPlayerName ();
 		}
 	}
 
@@ -52,12 +52,13 @@ public class GameManager : MonoBehaviour {
 	// START Server part
 	public void HostGame() {
 		// Start server
-		kandNetworkManager.HostGame ();
+		bool server = networkManager.StartServer();
+		Debug.Log (NetworkServer.listenPort);
 		ShowMenu(hostServerMenu);
 
 		// Show server ip in menu
 		Text serverLabel = GameObject.FindGameObjectWithTag ("ServerHostname").GetComponent<Text> ();
-		string ip = kandNetworkManager.GetHostingIP ();
+		string ip = networkManager.GetServerIP ();
 		serverLabel.text = ip;
 	}
 	// END Server part
@@ -65,16 +66,15 @@ public class GameManager : MonoBehaviour {
 	// START Client part
 	public void JoinGame() {
 		string serverInput = inputJoinGameServer.text;
-		kandNetworkManager.ConnectToServer (serverInput);
+		//networkManager.StartClient(serverInput);
+		NetworkClient client = networkManager.StartClient();
+		client.Connect (serverInput, 7777);
 
 		ShowMenu (connectingMenu);
 	}
 
 	public void OnFailedToConnect(NetworkConnectionError error) {
 		Debug.Log("Could not connect to server: " + error);
-
-		if (!kandNetworkManager.isServer)
-			ShowMenu(joinGameMenu);
 	}
 
 	public void OnConnectedToServer() {

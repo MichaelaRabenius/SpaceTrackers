@@ -8,6 +8,9 @@ public class KandNetworkManager : NetworkBehaviour {
 	public int port = 7777;
 	private string serverIp;
 
+	[SyncVar]
+	private string pname = "Ett namn";
+
 	// START Server part
 	public void HostGame() {
 		bool useNat = !Network.HavePublicAddress ();
@@ -23,6 +26,16 @@ public class KandNetworkManager : NetworkBehaviour {
 		Network.Disconnect();
 
 		Debug.Log ("Server has been shutdown");
+	}
+
+	public void test() {
+		if (Network.isServer)
+			RpcTest ();
+	}
+
+	[ClientRpc]
+	public void RpcTest() {
+		Debug.Log ("This is a test :)");
 	}
 	// END Server part
 
@@ -44,6 +57,11 @@ public class KandNetworkManager : NetworkBehaviour {
 	public void OnConnectedToServer() {
 		Debug.Log ("Connected to: " + serverIp);
 	}
+
+	[Command]
+	public void CmdChangeName(string newName) {
+		pname = newName;
+	}
 	// END Client server part
 
 	// START Getters
@@ -57,6 +75,10 @@ public class KandNetworkManager : NetworkBehaviour {
 
 	public string GetServerIp() {
 		return serverIp;
+	}
+
+	public string GetPlayerName() {
+		return pname;
 	}
 	// END Getters
 
