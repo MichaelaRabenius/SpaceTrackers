@@ -52,8 +52,13 @@ public class GameManagerTwo : MonoBehaviour {
 	// START Server part
 	public void HostGame() {
 		// Start server
-		bool server = networkManager.StartServer();
+		NetworkManager.singleton.networkPort = 7777;
+		NetworkManager.singleton.StartServer();
+
+		Debug.Log (NetworkManager.singleton.networkAddress);
 		Debug.Log (NetworkServer.listenPort);
+		Debug.Log (NetworkServer.active);
+
 		ShowMenu(hostServerMenu);
 
 		// Show server ip in menu
@@ -61,14 +66,15 @@ public class GameManagerTwo : MonoBehaviour {
 		string ip = networkManager.GetServerIP ();
 		serverLabel.text = ip;
 	}
+
 	// END Server part
 
 	// START Client part
 	public void JoinGame() {
 		string serverInput = inputJoinGameServer.text;
 		//networkManager.StartClient(serverInput);
-		NetworkClient client = networkManager.StartClient();
-		client.Connect (serverInput, 7777);
+		var myClient = new NetworkClient ();
+		myClient.Connect ("127.0.0.1", 7777);
 
 		ShowMenu (connectingMenu);
 	}
