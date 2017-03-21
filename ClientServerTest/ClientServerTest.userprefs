@@ -1,23 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameManagerTwo.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\New\NetworkGUI.cs">
     <Files>
-      <File FileName="Assets\Scripts\NetworkManagerScript.cs" Line="14" Column="3" />
-      <File FileName="Assets\Scripts\GameManagerTwo.cs" Line="57" Column="3" />
+      <File FileName="Assets\New\NetworkGUI.cs" Line="61" Column="11" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="ClientServerTest" expanded="True">
-            <Node name="Assembly-CSharp" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="GameManagerTwo.cs" selected="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
