@@ -7,6 +7,7 @@ using UnityEngine.Networking;
 public class NetworkGUI : NetworkLobbyManager {
 
 	private NetworkLobbyManager manager;
+	private int numPlayers = 0;
 
 	// Menu Main
 	private GameObject menuMain;
@@ -15,6 +16,7 @@ public class NetworkGUI : NetworkLobbyManager {
 
 	// Menu Server Started
 	private GameObject menuServerStarted;
+	private Text textNumConnections;
 
 	// Menu Client Connecting
 	private GameObject menuClientConnecting;
@@ -38,6 +40,7 @@ public class NetworkGUI : NetworkLobbyManager {
 
 		// Menu Server Started
 		menuServerStarted = GameObject.Find("MenuServerStarted");
+		textNumConnections = GameObject.Find ("TextNumConnections").GetComponent<Text>();
 
 		// Menu Client Connecting
 		menuClientConnecting = GameObject.Find("MenuClientConnecting");
@@ -55,13 +58,27 @@ public class NetworkGUI : NetworkLobbyManager {
 	}
 
 	void OnGUI () {
-		
+		if (menuServerStarted.active) {
+			textNumConnections.text = string.Format ("Connections: {0}", numPlayers);
+		}
 	}
 
 	public override void OnClientConnect(NetworkConnection conn)
 	{
 		base.OnClientConnect(conn);
 		NetworkJoinedServer ();
+	}
+
+	public override void OnServerConnect(NetworkConnection conn)
+	{
+		base.OnServerConnect(conn);
+		numPlayers++;
+	}
+
+	public override void OnServerDisconnect(NetworkConnection conn)
+	{
+		base.OnServerDisconnect(conn);
+		numPlayers--;
 	}
 
 	void showMenu(GameObject menu) {

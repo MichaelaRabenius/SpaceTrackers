@@ -84,6 +84,9 @@
  <Reference Include="UnityEngine.VR">
  <HintPath>D:/LAPTOP2/Program/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
+ <Reference Include="ZiosThemes">
+ <HintPath>D:/LAPTOP2/Programfiler/Unity/ATeam/ClientServerTest/Assets/Themes/ZiosThemes.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
