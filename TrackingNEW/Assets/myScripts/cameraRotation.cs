@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class cameraRotation : MonoBehaviour  
 {
@@ -9,9 +10,6 @@ public class cameraRotation : MonoBehaviour
 	private const float lowPassFilterFactor = 0.2f;
 
 	private readonly Quaternion baseIdentity =  Quaternion.Euler(90, 0, 0);
-	private readonly Quaternion landscapeRight =  Quaternion.Euler(0, 0, 90);
-	private readonly Quaternion landscapeLeft =  Quaternion.Euler(0, 0, -90);
-	private readonly Quaternion upsideDown =  Quaternion.Euler(0, 0, 180);
 
 	private Quaternion cameraBase =  Quaternion.identity;
 	private Quaternion calibration =  Quaternion.identity;
@@ -19,8 +17,12 @@ public class cameraRotation : MonoBehaviour
 	private Quaternion baseOrientationRotationFix =  Quaternion.identity;
 
 	private Quaternion referanceRotation = Quaternion.identity;
-
 	private Quaternion rotateDown = Quaternion.identity;
+	private Quaternion gyroCal = Quaternion.identity;
+
+	private bool ButtonClicked = false;
+	private bool showButton = true;
+	public Quaternion currentGyroRot = Quaternion.identity;
 
 	#endregion
 
@@ -29,36 +31,59 @@ public class cameraRotation : MonoBehaviour
 	protected void Start () 
 	{
 		AttachGyro();
+
+		//Create the quaternion to pitch 90 degrees, (x-axis)
+		rotateDown [0] = Mathf.Sqrt (0.5f);
+		rotateDown [3] = Mathf.Sqrt (0.5f);
 	}
 
 	protected void Update() 
 	{
 		if (!gyroEnabled)
 			return;
+
+		//Calibrate gyro with button
+		if (ButtonClicked) {
+				gyroCal = transform.rotation;
+				ButtonClicked = false;
+				showButton = false;
+		}
 		
+
 		//Calculate the rotation with the help of gyro
 		Quaternion tempQuat = cameraBase * (ConvertRotation (referanceRotation * Input.gyro.attitude) * GetRotFix ());
 
 		//Create the quaternion to only allow yaw (y-axis)
-		tempQuat[0] = 0;
-		tempQuat [2] = 0;
-		float mag = Mathf.Sqrt (tempQuat [3] * tempQuat [3] + tempQuat [1] * tempQuat [1]);
-		tempQuat [1] /= mag;
-		tempQuat [3] /= mag;
-
-		//Create the quaternion to pitch 90 degrees, (x-axis)
-		rotateDown [0] = Mathf.Sqrt (0.5f);
-		rotateDown [3] = Mathf.Sqrt (0.5f);
+		tempQuat = allowYaw(tempQuat);
 
 		//Multiply the quaternions to apply the rotations
+		tempQuat = calibrateGyro (tempQuat, gyroCal);
+
+		//Rotate 90 degrees down
 		tempQuat *= rotateDown;
 
 		//Apply the transformation to the camera
 		transform.rotation = Quaternion.Slerp(transform.rotation, tempQuat, lowPassFilterFactor);
+
+		//Public variable to be used by another script
+		currentGyroRot = allowYaw(transform.rotation);
 	}		
 
 	#endregion
+	private GUIStyle mStyle = new GUIStyle();
+	protected void OnGUI(){
+		mStyle.fontSize = 50;
+		mStyle.normal.textColor = Color.red;
+		GUILayout.Label ("        ");
+		GUILayout.Label("GyroRot" + this.transform.rotation.eulerAngles, mStyle);
+	
+		if (showButton) {
+			if (GUI.Button (new Rect (500, 500, 200, 100), "Calibrate Gyro")) {
+				ButtonClicked = true;
+			}
+		}
 
+	}
 	#region [Public methods]
 
 	/// <summary>
@@ -182,4 +207,23 @@ public class cameraRotation : MonoBehaviour
 	}
 
 	#endregion
+
+	//Removes the z and x rotation
+	private Quaternion allowYaw(Quaternion inputRot){
+
+		inputRot[0] = 0;
+		inputRot [2] = 0;
+		float mag = Mathf.Sqrt (inputRot [3] * inputRot [3] + inputRot [1] * inputRot [1]);
+		inputRot [1] /= mag;
+		inputRot [3] /= mag;
+
+		return inputRot;
+	}
+
+	//Calibrate gyro so that device points towards center of game
+	private Quaternion calibrateGyro(Quaternion inputRot, Quaternion gyroCal){
+		Quaternion temp = Quaternion.Inverse(allowYaw (gyroCal));
+		inputRot *= temp;
+		return inputRot;
+	}
 }
