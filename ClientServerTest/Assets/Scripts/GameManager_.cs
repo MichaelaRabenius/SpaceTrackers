@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour {
-
-	public static GameManager Instance {set; get;}
+public class GameManagered : MonoBehaviour {
+	/*
+	public static GameManagered Instance {set; get;}
 
 	public KandNetworkManager kandNetworkManager;
 
@@ -81,4 +81,5 @@ public class GameManager : MonoBehaviour {
 		ShowMenu (lobbyMenu);
 	}
 	// END Client part
+	*/
 }

@@ -1,13 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Networking;
 
-public class NetworkGUI : NetworkLobbyManager {
+public class KandGUI : MonoBehaviour {
 
-	private NetworkLobbyManager manager;
-	private int numPlayers = 0;
+	private KandNetworkManager manager;
 
 	// Menu Main
 	private GameObject menuMain;
@@ -23,9 +20,11 @@ public class NetworkGUI : NetworkLobbyManager {
 
 	// Menu Client Connected
 	private GameObject menuClientConnected;
+	private InputField inputPlayerName;
+	private Button buttonChangePlayerName;
 
 	void Awake() {
-		manager = this;
+		manager = GetComponent<KandNetworkManager>();
 	}
 
 	// Use this for initialization
@@ -35,8 +34,8 @@ public class NetworkGUI : NetworkLobbyManager {
 		buttonStartServer = GameObject.Find ("ButtonStartServer").GetComponent<Button> ();
 		buttonJoinServer = GameObject.Find ("ButtonJoinServer").GetComponent<Button> ();
 
-		buttonStartServer.onClick.AddListener (NetworkStartServer);
-		buttonJoinServer.onClick.AddListener (NetworkJoinServer);
+		buttonStartServer.onClick.AddListener (NetworkServerStart);
+		buttonJoinServer.onClick.AddListener (NetworkClientConnect);
 
 		// Menu Server Started
 		menuServerStarted = GameObject.Find("MenuServerStarted");
@@ -47,38 +46,24 @@ public class NetworkGUI : NetworkLobbyManager {
 
 		// Menu Client Connected
 		menuClientConnected = GameObject.Find("MenuClientConnected");
+		inputPlayerName = GameObject.Find ("InputPlayerName").GetComponent<InputField>();
+		buttonChangePlayerName = GameObject.Find ("ButtonChangePlayerName").GetComponent<Button>();
+
+		//buttonChangePlayerName.onClick.AddListener (manager.CmdSetPlayerName());
 
 		// Show main menu
 		showMenu(menuMain);
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		//Debug.Log("Update");
 	}
 
 	void OnGUI () {
-		if (menuServerStarted.active) {
-			textNumConnections.text = string.Format ("Connections: {0}", numPlayers);
+		if (menuServerStarted.activeInHierarchy) {
+			textNumConnections.text = string.Format ("Connections: {0}", manager.GetNumPlayers());
 		}
-	}
-
-	public override void OnClientConnect(NetworkConnection conn)
-	{
-		base.OnClientConnect(conn);
-		NetworkJoinedServer ();
-	}
-
-	public override void OnServerConnect(NetworkConnection conn)
-	{
-		base.OnServerConnect(conn);
-		numPlayers++;
-	}
-
-	public override void OnServerDisconnect(NetworkConnection conn)
-	{
-		base.OnServerDisconnect(conn);
-		numPlayers--;
 	}
 
 	void showMenu(GameObject menu) {
@@ -90,21 +75,24 @@ public class NetworkGUI : NetworkLobbyManager {
 		menu.SetActive (true);
 	}
 
-	void NetworkStartServer ()
+	void NetworkServerStart ()
 	{
 		manager.StartServer ();
 		Debug.Log ("Server started");
 		showMenu(menuServerStarted);
 	}
 
-	void NetworkJoinServer ()
+	void NetworkClientConnect ()
 	{
+		string ip = GameObject.Find ("InputServerHost").GetComponent<InputField> ().text;
+		manager.networkAddress = ip;
+
 		manager.StartClient ();
-		Debug.Log ("Client connecting");
+		Debug.Log ("Client connecting to " + ip);
 		showMenu(menuClientConnecting);
 	}
 
-	void NetworkJoinedServer ()
+	public void OnNetworkClientConnect ()
 	{
 		Debug.Log ("Client connected");
 		showMenu(menuClientConnected);

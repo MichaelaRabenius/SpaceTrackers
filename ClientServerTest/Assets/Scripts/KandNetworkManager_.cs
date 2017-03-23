@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class KandNetworkManager : NetworkBehaviour {
+public class KandNetworkManagered : NetworkBehaviour {
 
 	public int port = 7777;
 	private string serverIp;

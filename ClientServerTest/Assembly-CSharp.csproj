@@ -58,10 +58,12 @@
      <Compile Include="Assets\Lobby\Scripts\Lobby\LobbyServerEntry.cs" />
      <Compile Include="Assets\Lobby\Scripts\Lobby\LobbyServerList.cs" />
      <Compile Include="Assets\Lobby\Scripts\Lobby\LobbyTopPanel.cs" />
-     <Compile Include="Assets\New\NetworkGUI.cs" />
-     <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\New\KandGUI.cs" />
+     <Compile Include="Assets\New\KandNetworkManager.cs" />
+     <Compile Include="Assets\New\KandPlayer.cs" />
      <Compile Include="Assets\Scripts\GameManagerTwo.cs" />
-     <Compile Include="Assets\Scripts\KandNetworkManager.cs" />
+     <Compile Include="Assets\Scripts\GameManager_.cs" />
+     <Compile Include="Assets\Scripts\KandNetworkManager_.cs" />
      <Compile Include="Assets\Scripts\NetworkManagerScript.cs" />
      <None Include="Assets\Lobby\Documentation.txt" />
      <None Include="Assets\Lobby\Instruction.txt" />
@@ -83,9 +85,6 @@
  </Reference>
  <Reference Include="UnityEngine.VR">
  <HintPath>D:/LAPTOP2/Program/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
- </Reference>
- <Reference Include="ZiosThemes">
- <HintPath>D:/LAPTOP2/Programfiler/Unity/ATeam/ClientServerTest/Assets/Themes/ZiosThemes.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
