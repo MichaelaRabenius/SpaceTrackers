@@ -12,7 +12,8 @@ public class KandGUI : MonoBehaviour {
 	private Button buttonStartServer;
 	private Button buttonJoinServer;
 
-	// Menu Server Started
+    // Menu Server Started
+    private Button buttonStartGame;
 	private GameObject menuServerStarted;
 	private Text textNumConnections;
 
@@ -34,15 +35,17 @@ public class KandGUI : MonoBehaviour {
 	void Start () {
 		// Menu Main
 		menuMain = GameObject.Find("MenuMain");
-		buttonStartServer = GameObject.Find ("ButtonStartServer").GetComponent<Button> ();
-		buttonJoinServer = GameObject.Find ("ButtonJoinServer").GetComponent<Button> ();
+		buttonStartServer = GameObject.Find("ButtonStartServer").GetComponent<Button> ();
+		buttonJoinServer = GameObject.Find("ButtonJoinServer").GetComponent<Button> ();
 
-		buttonStartServer.onClick.AddListener (NetworkServerStart);
-		buttonJoinServer.onClick.AddListener (NetworkClientConnect);
+		buttonStartServer.onClick.AddListener(NetworkServerStart);
+		buttonJoinServer.onClick.AddListener(NetworkClientConnect);
 
-		// Menu Server Started
-		menuServerStarted = GameObject.Find("MenuServerStarted");
-		textNumConnections = GameObject.Find ("TextNumConnections").GetComponent<Text>();
+        // Menu Server Started
+        buttonStartGame = GameObject.Find("buttonStartGame").GetComponent<Button>();
+        buttonStartGame.onClick.AddListener(startGameOnHost);
+        menuServerStarted = GameObject.Find("MenuServerStarted");
+		textNumConnections = GameObject.Find("TextNumConnections").GetComponent<Text>();
 
 		// Menu Client Connecting
 		menuClientConnecting = GameObject.Find("MenuClientConnecting");
@@ -87,6 +90,11 @@ public class KandGUI : MonoBehaviour {
         //1. if client connects, spawn a row 
 	}
 
+    void startGameOnHost ()
+    {
+        //load the next scene, i.e load the accual game
+    }
+
 	void NetworkClientConnect ()
 	{
 		string ip = GameObject.Find ("InputServerHost").GetComponent<InputField> ().text;
@@ -104,6 +112,7 @@ public class KandGUI : MonoBehaviour {
 
 	}
 
+    
     void changePlayerNameOnClick ()
     {
         string input = GameObject.Find("InputPlayerName").GetComponent<InputField>().text;
