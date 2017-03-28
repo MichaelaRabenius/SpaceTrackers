@@ -27,10 +27,12 @@ public class cameraMovement : MonoBehaviour{
 	private Quaternion VRCameraRot;
 	private bool firstTime = true;
 
+
 	private Vector3 temp;
 	// Use this for initialization
 	void Start () {
 		//Set camera pos/rot first time
+
 		VRCamera = Camera.main; 
 		VRCameraPrevPos = VRCamera.transform.position;
 

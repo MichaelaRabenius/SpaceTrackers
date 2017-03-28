@@ -83,6 +83,8 @@
      <Compile Include="Assets\Vuforia\Scripts\WordBehaviour.cs" />
      <Compile Include="Assets\myScripts\cameraMovement.cs" />
      <Compile Include="Assets\myScripts\cameraRotation.cs" />
+     <Compile Include="Assets\myScripts\objectsInScreenCircle.cs" />
+     <Compile Include="Assets\myScripts\playerNetwork.cs" />
      <Compile Include="Assets\myScripts\trackingState.cs" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\Vuforia\Shaders\ColoredLines.shader" />
