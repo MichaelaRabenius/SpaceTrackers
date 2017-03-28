@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class KandGUI : MonoBehaviour {
 
 	private KandNetworkManager manager;
+    private KandPlayer KandPlayer;
 
 	// Menu Main
 	private GameObject menuMain;
@@ -22,9 +23,11 @@ public class KandGUI : MonoBehaviour {
 	private GameObject menuClientConnected;
 	private InputField inputPlayerName;
 	private Button buttonChangePlayerName;
+    private Text playerNameActive;
 
 	void Awake() {
 		manager = GetComponent<KandNetworkManager>();
+        KandPlayer = GetComponent<KandPlayer>();
 	}
 
 	// Use this for initialization
@@ -48,15 +51,16 @@ public class KandGUI : MonoBehaviour {
 		menuClientConnected = GameObject.Find("MenuClientConnected");
 		inputPlayerName = GameObject.Find ("InputPlayerName").GetComponent<InputField>();
 		buttonChangePlayerName = GameObject.Find ("ButtonChangePlayerName").GetComponent<Button>();
+        buttonChangePlayerName.onClick.AddListener (changePlayerNameOnClick);
+        playerNameActive = GameObject.Find("PlayerName").GetComponent<Text>();
+        //buttonChangePlayerName.onClick.AddListener (manager.CmdSetPlayerName());
 
-		//buttonChangePlayerName.onClick.AddListener (manager.CmdSetPlayerName());
-
-		// Show main menu
-		showMenu(menuMain);
+        // Show main menu
+        showMenu(menuMain);
 	}
 
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame 
+    void Update () {
 		//Debug.Log("Update");
 	}
 
@@ -80,6 +84,7 @@ public class KandGUI : MonoBehaviour {
 		manager.StartServer ();
 		Debug.Log ("Server started");
 		showMenu(menuServerStarted);
+        //1. if client connects, spawn a row 
 	}
 
 	void NetworkClientConnect ()
@@ -96,5 +101,14 @@ public class KandGUI : MonoBehaviour {
 	{
 		Debug.Log ("Client connected");
 		showMenu(menuClientConnected);
+
 	}
+
+    void changePlayerNameOnClick ()
+    {
+        string input = GameObject.Find("InputPlayerName").GetComponent<InputField>().text;
+        //KandPlayer.name = input;
+        playerNameActive.text =  string.Format ("Player name: " + input);
+        //manager.OnServerAddPlayer();
+    }
 }
