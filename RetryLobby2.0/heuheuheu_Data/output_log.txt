@@ -1,0 +1,117 @@
+Initialize engine version: 5.5.1f1 (88d00a7498cd)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 850M      (ID=0x1391)
+    Vendor:   NVIDIA
+    VRAM:     1995 MB
+    Driver:   10.18.13.5560
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\RetryLobby2.0\heuheuheu_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\RetryLobby2.0\heuheuheu_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\RetryLobby2.0\heuheuheu_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\RetryLobby2.0\heuheuheu_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\RetryLobby2.0\heuheuheu_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\RetryLobby2.0\heuheuheu_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\RetryLobby2.0\heuheuheu_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\RetryLobby2.0\heuheuheu_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\RetryLobby2.0\heuheuheu_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading D:\RetryLobby2.0\heuheuheu_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+Platform assembly: D:\RetryLobby2.0\heuheuheu_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading D:\RetryLobby2.0\heuheuheu_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.131 seconds
+Platform assembly: D:\RetryLobby2.0\heuheuheu_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\RetryLobby2.0\heuheuheu_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.500136 ms
+NullReferenceException: Object reference not set to an instance of an object
+  at Prototype.NetworkLobby.LobbyMainMenu.OnEnable () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 1008 -> priority: 1 
+  Thread -> id: 1488 -> priority: 1 
+NetworkLobbyManager no GamePlayer prefab is registered. Please add a GamePlayer prefab.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+DontDestroyOnLoad only work for root GameObjects or components on root GameObjects.
+ 
+(Filename:  Line: 447)
+
+DontDestroyOnLoad only work for root GameObjects or components on root GameObjects.
+ 
+(Filename:  Line: 447)
+
+DontDestroyOnLoad only work for root GameObjects or components on root GameObjects.
+ 
+(Filename:  Line: 447)
+
+DontDestroyOnLoad only work for root GameObjects or components on root GameObjects.
+ 
+(Filename:  Line: 447)
+
+DontDestroyOnLoad only work for root GameObjects or components on root GameObjects.
+ 
+(Filename:  Line: 447)
+
+DontDestroyOnLoad only work for root GameObjects or components on root GameObjects.
+ 
+(Filename:  Line: 447)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+NullReferenceException: Object reference not set to an instance of an object
+  at Prototype.NetworkLobby.LobbyMainMenu.OnEnable () [0x00000] in <filename unknown>:0 
+UnityEngine.GameObject:SetActive(Boolean)
+Prototype.NetworkLobby.LobbyManager:ChangeTo(RectTransform)
+Prototype.NetworkLobby.LobbyManager:StopHostClbk()
+Prototype.NetworkLobby.LobbyManager:GoBackButton()
+UnityEngine.Events.InvokableCall:Invoke(Object[])
+UnityEngine.Events.InvokableCallList:Invoke(Object[])
+UnityEngine.Events.UnityEventBase:Invoke(Object[])
+UnityEngine.Events.UnityEvent:Invoke()
+UnityEngine.UI.Button:Press()
+UnityEngine.UI.Button:OnPointerClick(PointerEventData)
+UnityEngine.EventSystems.ExecuteEvents:Execute(IPointerClickHandler, BaseEventData)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
+UnityEngine.EventSystems.StandaloneInputModule:Process()
+UnityEngine.EventSystems.EventSystem:Update()
+ 
+(Filename:  Line: -1)
+
+UnloadTime: 1.294042 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 626.
+Total: 0.745141 ms (FindLiveObjects: 0.034896 ms CreateObjectMapping: 0.027096 ms MarkObjects: 0.669601 ms  DeleteObjects: 0.007800 ms)
+
+NetworkLobbyManager no GamePlayer prefab is registered. Please add a GamePlayer prefab.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+DontDestroyOnLoad only work for root GameObjects or components on root GameObjects.
+ 
+(Filename:  Line: 447)
+
+DontDestroyOnLoad only work for root GameObjects or components on root GameObjects.
+ 
+(Filename:  Line: 447)
+
+DontDestroyOnLoad only work for root GameObjects or components on root GameObjects.
+ 
+(Filename:  Line: 447)
+
+DontDestroyOnLoad only work for root GameObjects or components on root GameObjects.
+ 
+(Filename:  Line: 447)
+
+DontDestroyOnLoad only work for root GameObjects or components on root GameObjects.
+ 
+(Filename:  Line: 447)
+
