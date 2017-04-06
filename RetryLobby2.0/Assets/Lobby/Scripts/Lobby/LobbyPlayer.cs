@@ -31,7 +31,7 @@ namespace Prototype.NetworkLobby
         public Color playerColor = Color.white;
 
         public Color OddRowColor = new Color(250.0f / 255.0f, 250.0f / 255.0f, 250.0f / 255.0f, 1.0f);
-        public Color EvenRowColor = new Color(180.0f / 255.0f, 180.0f / 255.0f, 180.0f / 255.0f, 1.0f);
+        public Color EvenRowColor = new Color(230.0f / 255.0f, 235.0f / 255.0f, 240.0f / 255.0f, 1.0f);
 
         static Color JoinColor = new Color(255.0f/255.0f, 0.0f, 101.0f/255.0f,1.0f);
         static Color NotReadyColor = new Color(34.0f / 255.0f, 44 / 255.0f, 55.0f / 255.0f, 1.0f);
