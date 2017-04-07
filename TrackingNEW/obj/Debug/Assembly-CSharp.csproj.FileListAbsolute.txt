@@ -31,3 +31,7 @@ C:\Users\Viktor\Documents\UnityProjects\Tracking\TrackingNEW\Temp\bin\Debug\Unit
 C:\Users\Viktor\Documents\UnityProjects\Tracking\TrackingNEW\Temp\bin\Debug\Vuforia.UnityExtensions.xml
 C:\Users\Viktor\Documents\UnityProjects\Tracking\TrackingNEW\obj\Debug\Assembly-CSharp.dll
 C:\Users\Viktor\Documents\UnityProjects\Tracking\TrackingNEW\obj\Debug\Assembly-CSharp.pdb
+C:\Users\Viktor\Documents\UnityProjects\Tracking\TrackingNEW\Temp\bin\Debug\Photon3Unity3D.dll
+C:\Users\Viktor\Documents\UnityProjects\Tracking\TrackingNEW\Temp\bin\Debug\websocket-sharp.dll
+C:\Users\Viktor\Documents\UnityProjects\Tracking\TrackingNEW\Temp\bin\Debug\Photon3Unity3D.xml
+C:\Users\Viktor\Documents\UnityProjects\Tracking\TrackingNEW\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb

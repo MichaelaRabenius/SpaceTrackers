@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class cameraMovement : MonoBehaviour{
 	/*VARIABLES*/
-	private static float cameraHeight = 300f;
+	private static float cameraHeight = 300;
 	private static float CameraSpeed = 15f;
 	private bool isTracking = false;
-	private Vector3 centerPoint = new Vector3 (0f, cameraHeight, 0f);
-	private Vector3 directionToCenter;
 	private Quaternion identityQuat = Quaternion.identity;
 
 	//CameraMovement/holder of camera variables
@@ -68,9 +66,7 @@ public class cameraMovement : MonoBehaviour{
 			}
 			//HIT
 
-
-			directionToCenter = centerPoint - VRCameraPos;
-			directionToCenter.Normalize ();
+		
 
 			//Move with the CameraSpeed and set height
 			newCameraPos = new Vector3 (VRCameraPos.x * CameraSpeed, cameraHeight, VRCameraPos.z * -CameraSpeed);
@@ -82,8 +78,6 @@ public class cameraMovement : MonoBehaviour{
 	
 			//Update previous position
 			VRCameraPrevPos = VRCameraPos;
-
-
 
 		}
 	}

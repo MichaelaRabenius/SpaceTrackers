@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
-public class cameraRotation : MonoBehaviour  
+public class cameraRotation : NetworkBehaviour  
 {
 	#region [Private fields]
 	private bool gyroEnabled = true;
@@ -30,6 +31,7 @@ public class cameraRotation : MonoBehaviour
 
 	protected void Start () 
 	{
+
 		AttachGyro();
 
 		//Create the quaternion to pitch 90 degrees, (x-axis)
@@ -38,7 +40,8 @@ public class cameraRotation : MonoBehaviour
 	}
 
 	protected void Update() 
-	{
+	{	
+
 		if (!gyroEnabled)
 			return;
 

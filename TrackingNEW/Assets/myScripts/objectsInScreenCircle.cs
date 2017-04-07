@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Objects in screen circle.
+/// </summary>
 public class objectsInScreenCircle : MonoBehaviour {
 	//Array to store hit elements
 	private Collider[] hitColliders;
