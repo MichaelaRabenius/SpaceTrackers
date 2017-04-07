@@ -46,19 +46,23 @@ namespace Prototype.NetworkLobby
         {
             base.OnClientEnterLobby();
 
+			Debug.Log ("isServer: " + isServer);
+			Debug.Log ("isClient: " + isClient);
+			Debug.Log ("isLocalPlayer: " + isLocalPlayer);
+
             if (LobbyManager.s_Singleton != null) LobbyManager.s_Singleton.OnPlayersNumberModified(1);
 
             LobbyPlayerList._instance.AddPlayer(this);
-            LobbyPlayerList._instance.DisplayDirectServerWarning(isServer && LobbyManager.s_Singleton.matchMaker == null);
 
-            if (isLocalPlayer)
+			SetupOtherPlayer();
+            /*if (isLocalPlayer)
             {
                 SetupLocalPlayer();
             }
             else
             {
                 SetupOtherPlayer();
-            }
+            }*/
 
             //setup the player data on UI. The value are SyncVar so the player
             //will be created with the right value currently on server
