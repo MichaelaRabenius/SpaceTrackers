@@ -13,6 +13,7 @@ namespace Prototype.NetworkLobby
         public RectTransform lobbyPanel;
 
         public InputField ipInput;
+        public InputField matchNameInput;
 
         public void OnEnable()
         {
@@ -48,6 +49,13 @@ namespace Prototype.NetworkLobby
             lobbyManager.backDelegate = lobbyManager.StopServerClbk;
 
             lobbyManager.SetServerInfo("Dedicated Server", lobbyManager.networkAddress);
+        }
+
+        public void OnClickOpenServerList()
+        {
+            lobbyManager.StartMatchMaker();
+            lobbyManager.backDelegate = lobbyManager.SimpleBackClbk;
+            lobbyManager.ChangeTo(lobbyServerList);
         }
 
         void onEndEditIP(string text)

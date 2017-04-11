@@ -31,7 +31,7 @@ namespace Prototype.NetworkLobby
         public Color playerColor = Color.white;
 
         public Color OddRowColor = new Color(250.0f / 255.0f, 250.0f / 255.0f, 250.0f / 255.0f, 1.0f);
-        public Color EvenRowColor = new Color(230.0f / 255.0f, 235.0f / 255.0f, 240.0f / 255.0f, 1.0f);
+        public Color EvenRowColor = new Color(180.0f / 255.0f, 180.0f / 255.0f, 180.0f / 255.0f, 1.0f);
 
         static Color JoinColor = new Color(255.0f/255.0f, 0.0f, 101.0f/255.0f,1.0f);
         static Color NotReadyColor = new Color(34.0f / 255.0f, 44 / 255.0f, 55.0f / 255.0f, 1.0f);
@@ -46,23 +46,19 @@ namespace Prototype.NetworkLobby
         {
             base.OnClientEnterLobby();
 
-			Debug.Log ("isServer: " + isServer);
-			Debug.Log ("isClient: " + isClient);
-			Debug.Log ("isLocalPlayer: " + isLocalPlayer);
-
             if (LobbyManager.s_Singleton != null) LobbyManager.s_Singleton.OnPlayersNumberModified(1);
 
             LobbyPlayerList._instance.AddPlayer(this);
+            LobbyPlayerList._instance.DisplayDirectServerWarning(isServer && LobbyManager.s_Singleton.matchMaker == null);
 
-			SetupOtherPlayer();
-            /*if (isLocalPlayer)
+            if (isLocalPlayer)
             {
                 SetupLocalPlayer();
             }
             else
             {
                 SetupOtherPlayer();
-            }*/
+            }
 
             //setup the player data on UI. The value are SyncVar so the player
             //will be created with the right value currently on server

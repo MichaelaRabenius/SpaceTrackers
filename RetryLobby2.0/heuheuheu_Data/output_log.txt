@@ -2,10 +2,10 @@ Mono path[0] = 'D:/LAPTOP2/Programfiler/Unity/ATeam/RetryLobby2.0/heuheuheu_Data
 Mono path[1] = 'D:/LAPTOP2/Programfiler/Unity/ATeam/RetryLobby2.0/heuheuheu_Data/Mono'
 Mono config path = 'D:/LAPTOP2/Programfiler/Unity/ATeam/RetryLobby2.0/heuheuheu_Data/Mono/etc'
 PlayerConnection initialized from D:/LAPTOP2/Programfiler/Unity/ATeam/RetryLobby2.0/heuheuheu_Data (debug = 0)
-PlayerConnection initialized network socket : 0.0.0.0 55455
-Multi-casting "[IP] 10.253.223.255 [Port] 55455 [Flags] 2 [Guid] 3950371030 [EditorId] 2770132619 [Version] 1048832 [Id] WindowsPlayer(DESKTOP-DA9M0UE) [Debug] 0" to [225.0.0.222:54997]...
-Started listening to [0.0.0.0:55455]
-PlayerConnection already initialized - listening to [0.0.0.0:55455]
+PlayerConnection initialized network socket : 0.0.0.0 55244
+Multi-casting "[IP] 10.253.245.103 [Port] 55244 [Flags] 2 [Guid] 243128568 [EditorId] 3127889922 [Version] 1048832 [Id] WindowsPlayer(DESKTOP-DA9M0UE) [Debug] 0" to [225.0.0.222:54997]...
+Started listening to [0.0.0.0:55244]
+PlayerConnection already initialized - listening to [0.0.0.0:55244]
 Initialize engine version: 5.5.1f1 (88d00a7498cd)
 GfxDevice: creating device client; threaded=1
 Direct3D:
@@ -27,205 +27,22 @@ Platform assembly: D:\LAPTOP2\Programfiler\Unity\ATeam\RetryLobby2.0\heuheuheu_D
 Loading D:\LAPTOP2\Programfiler\Unity\ATeam\RetryLobby2.0\heuheuheu_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
 Platform assembly: D:\LAPTOP2\Programfiler\Unity\ATeam\RetryLobby2.0\heuheuheu_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading D:\LAPTOP2\Programfiler\Unity\ATeam\RetryLobby2.0\heuheuheu_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.031 seconds
+- Completed reload, in  0.032 seconds
 Platform assembly: D:\LAPTOP2\Programfiler\Unity\ATeam\RetryLobby2.0\heuheuheu_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: D:\LAPTOP2\Programfiler\Unity\ATeam\RetryLobby2.0\heuheuheu_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 4.529368 ms
+UnloadTime: 3.730688 ms
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 3444 -> priority: 1 
-isServer: True
-UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
-UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
-UnityEngine.Logger:Log(LogType, Object)
-UnityEngine.Debug:Log(Object)
-Prototype.NetworkLobby.LobbyPlayer:OnClientEnterLobby() (at D:\LAPTOP2\Programfiler\Unity\ATeam\RetryLobby2.0\Assets\Lobby\Scripts\Lobby\LobbyPlayer.cs:49)
-UnityEngine.Networking.NetworkLobbyPlayer:OnStartClient() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkLobbyPlayer.cs:44)
-UnityEngine.Networking.NetworkIdentity:OnStartClient() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:373)
-UnityEngine.Networking.NetworkIdentity:OnStartServer(Boolean) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:350)
-UnityEngine.Networking.NetworkServer:SetupLocalPlayerForConnection(NetworkConnection, NetworkIdentity, PlayerController) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1011)
-UnityEngine.Networking.NetworkServer:InternalAddPlayerForConnection(NetworkConnection, GameObject, Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:962)
-UnityEngine.Networking.NetworkServer:AddPlayerForConnection(NetworkConnection, GameObject, Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:925)
-UnityEngine.Networking.NetworkLobbyManager:OnServerAddPlayer(NetworkConnection, Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkLobbyManager.cs:353)
-UnityEngine.Networking.NetworkManager:OnServerAddPlayerMessageInternal(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:869)
-UnityEngine.Networking.NetworkConnection:InvokeHandler(Int16, NetworkReader, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:217)
-UnityEngine.Networking.NetworkServer:InvokeHandlerOnServer(ULocalConnectionToServer, Int16, MessageBase, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1639)
-UnityEngine.Networking.ULocalConnectionToServer:Send(Int16, MessageBase) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\LocalConnections.cs:83)
-UnityEngine.Networking.ClientScene:AddPlayer(NetworkConnection, Int16, MessageBase) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:202)
-UnityEngine.Networking.ClientScene:AddPlayer(NetworkConnection, Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:135)
-UnityEngine.Networking.ClientScene:AddPlayer(Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:128)
-UnityEngine.Networking.NetworkManager:OnClientConnect(NetworkConnection) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:1115)
-UnityEngine.Networking.NetworkLobbyManager:OnClientConnect(NetworkConnection) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkLobbyManager.cs:548)
-Prototype.NetworkLobby.LobbyManager:OnClientConnect(NetworkConnection) (at D:\LAPTOP2\Programfiler\Unity\ATeam\RetryLobby2.0\Assets\Lobby\Scripts\Lobby\LobbyManager.cs:393)
-UnityEngine.Networking.NetworkManager:OnClientConnectInternal(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:919)
-UnityEngine.Networking.NetworkConnection:InvokeHandler(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:228)
-UnityEngine.Networking.LocalClient:ProcessInternalMessages() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\LocalClient.cs:142)
-UnityEngine.Networking.LocalClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\LocalClient.cs:69)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:950)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:1089)
- 
-(Filename: D:/LAPTOP2/Programfiler/Unity/ATeam/RetryLobby2.0/Assets/Lobby/Scripts/Lobby/LobbyPlayer.cs Line: 49)
-
-isClient: True
-UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
-UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
-UnityEngine.Logger:Log(LogType, Object)
-UnityEngine.Debug:Log(Object)
-Prototype.NetworkLobby.LobbyPlayer:OnClientEnterLobby() (at D:\LAPTOP2\Programfiler\Unity\ATeam\RetryLobby2.0\Assets\Lobby\Scripts\Lobby\LobbyPlayer.cs:50)
-UnityEngine.Networking.NetworkLobbyPlayer:OnStartClient() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkLobbyPlayer.cs:44)
-UnityEngine.Networking.NetworkIdentity:OnStartClient() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:373)
-UnityEngine.Networking.NetworkIdentity:OnStartServer(Boolean) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:350)
-UnityEngine.Networking.NetworkServer:SetupLocalPlayerForConnection(NetworkConnection, NetworkIdentity, PlayerController) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1011)
-UnityEngine.Networking.NetworkServer:InternalAddPlayerForConnection(NetworkConnection, GameObject, Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:962)
-UnityEngine.Networking.NetworkServer:AddPlayerForConnection(NetworkConnection, GameObject, Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:925)
-UnityEngine.Networking.NetworkLobbyManager:OnServerAddPlayer(NetworkConnection, Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkLobbyManager.cs:353)
-UnityEngine.Networking.NetworkManager:OnServerAddPlayerMessageInternal(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:869)
-UnityEngine.Networking.NetworkConnection:InvokeHandler(Int16, NetworkReader, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:217)
-UnityEngine.Networking.NetworkServer:InvokeHandlerOnServer(ULocalConnectionToServer, Int16, MessageBase, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1639)
-UnityEngine.Networking.ULocalConnectionToServer:Send(Int16, MessageBase) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\LocalConnections.cs:83)
-UnityEngine.Networking.ClientScene:AddPlayer(NetworkConnection, Int16, MessageBase) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:202)
-UnityEngine.Networking.ClientScene:AddPlayer(NetworkConnection, Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:135)
-UnityEngine.Networking.ClientScene:AddPlayer(Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:128)
-UnityEngine.Networking.NetworkManager:OnClientConnect(NetworkConnection) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:1115)
-UnityEngine.Networking.NetworkLobbyManager:OnClientConnect(NetworkConnection) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkLobbyManager.cs:548)
-Prototype.NetworkLobby.LobbyManager:OnClientConnect(NetworkConnection) (at D:\LAPTOP2\Programfiler\Unity\ATeam\RetryLobby2.0\Assets\Lobby\Scripts\Lobby\LobbyManager.cs:393)
-UnityEngine.Networking.NetworkManager:OnClientConnectInternal(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:919)
-UnityEngine.Networking.NetworkConnection:InvokeHandler(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:228)
-UnityEngine.Networking.LocalClient:ProcessInternalMessages() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\LocalClient.cs:142)
-UnityEngine.Networking.LocalClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\LocalClient.cs:69)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:950)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:1089)
- 
-(Filename: D:/LAPTOP2/Programfiler/Unity/ATeam/RetryLobby2.0/Assets/Lobby/Scripts/Lobby/LobbyPlayer.cs Line: 50)
-
-isLocalPlayer: False
-UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
-UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
-UnityEngine.Logger:Log(LogType, Object)
-UnityEngine.Debug:Log(Object)
-Prototype.NetworkLobby.LobbyPlayer:OnClientEnterLobby() (at D:\LAPTOP2\Programfiler\Unity\ATeam\RetryLobby2.0\Assets\Lobby\Scripts\Lobby\LobbyPlayer.cs:51)
-UnityEngine.Networking.NetworkLobbyPlayer:OnStartClient() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkLobbyPlayer.cs:44)
-UnityEngine.Networking.NetworkIdentity:OnStartClient() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:373)
-UnityEngine.Networking.NetworkIdentity:OnStartServer(Boolean) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:350)
-UnityEngine.Networking.NetworkServer:SetupLocalPlayerForConnection(NetworkConnection, NetworkIdentity, PlayerController) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1011)
-UnityEngine.Networking.NetworkServer:InternalAddPlayerForConnection(NetworkConnection, GameObject, Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:962)
-UnityEngine.Networking.NetworkServer:AddPlayerForConnection(NetworkConnection, GameObject, Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:925)
-UnityEngine.Networking.NetworkLobbyManager:OnServerAddPlayer(NetworkConnection, Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkLobbyManager.cs:353)
-UnityEngine.Networking.NetworkManager:OnServerAddPlayerMessageInternal(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:869)
-UnityEngine.Networking.NetworkConnection:InvokeHandler(Int16, NetworkReader, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:217)
-UnityEngine.Networking.NetworkServer:InvokeHandlerOnServer(ULocalConnectionToServer, Int16, MessageBase, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1639)
-UnityEngine.Networking.ULocalConnectionToServer:Send(Int16, MessageBase) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\LocalConnections.cs:83)
-UnityEngine.Networking.ClientScene:AddPlayer(NetworkConnection, Int16, MessageBase) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:202)
-UnityEngine.Networking.ClientScene:AddPlayer(NetworkConnection, Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:135)
-UnityEngine.Networking.ClientScene:AddPlayer(Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\ClientScene.cs:128)
-UnityEngine.Networking.NetworkManager:OnClientConnect(NetworkConnection) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:1115)
-UnityEngine.Networking.NetworkLobbyManager:OnClientConnect(NetworkConnection) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkLobbyManager.cs:548)
-Prototype.NetworkLobby.LobbyManager:OnClientConnect(NetworkConnection) (at D:\LAPTOP2\Programfiler\Unity\ATeam\RetryLobby2.0\Assets\Lobby\Scripts\Lobby\LobbyManager.cs:393)
-UnityEngine.Networking.NetworkManager:OnClientConnectInternal(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:919)
-UnityEngine.Networking.NetworkConnection:InvokeHandler(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:228)
-UnityEngine.Networking.LocalClient:ProcessInternalMessages() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\LocalClient.cs:142)
-UnityEngine.Networking.LocalClient:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\LocalClient.cs:69)
-UnityEngine.Networking.NetworkClient:UpdateClients() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkClient.cs:950)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:1089)
- 
-(Filename: D:/LAPTOP2/Programfiler/Unity/ATeam/RetryLobby2.0/Assets/Lobby/Scripts/Lobby/LobbyPlayer.cs Line: 51)
-
+  Thread -> id: 17d8 -> priority: 1 
 DontDestroyOnLoad only work for root GameObjects or components on root GameObjects.
 UnityEngine.Object:DontDestroyOnLoad(Object)
 UnityEngine.Networking.NetworkLobbyPlayer:Start() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkLobbyPlayer.cs:24)
 
 [C:/buildslave/unity/build/Runtime/SceneManager/SceneManager.cpp line 447] 
 (Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkLobbyPlayer.cs Line: 24)
-
-isServer: True
-UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
-UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
-UnityEngine.Logger:Log(LogType, Object)
-UnityEngine.Debug:Log(Object)
-Prototype.NetworkLobby.LobbyPlayer:OnClientEnterLobby() (at D:\LAPTOP2\Programfiler\Unity\ATeam\RetryLobby2.0\Assets\Lobby\Scripts\Lobby\LobbyPlayer.cs:49)
-UnityEngine.Networking.NetworkLobbyPlayer:OnStartClient() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkLobbyPlayer.cs:44)
-UnityEngine.Networking.NetworkIdentity:OnStartClient() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:373)
-UnityEngine.Networking.NetworkIdentity:OnStartServer(Boolean) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:350)
-UnityEngine.Networking.NetworkServer:SpawnObject(GameObject) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1317)
-UnityEngine.Networking.NetworkServer:Spawn(GameObject) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1541)
-UnityEngine.Networking.NetworkServer:FinishPlayerForConnection(NetworkConnection, NetworkIdentity, GameObject) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1036)
-UnityEngine.Networking.NetworkServer:InternalAddPlayerForConnection(NetworkConnection, GameObject, Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:969)
-UnityEngine.Networking.NetworkServer:AddPlayerForConnection(NetworkConnection, GameObject, Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:925)
-UnityEngine.Networking.NetworkLobbyManager:OnServerAddPlayer(NetworkConnection, Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkLobbyManager.cs:353)
-UnityEngine.Networking.NetworkManager:OnServerAddPlayerMessageInternal(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:869)
-UnityEngine.Networking.NetworkConnection:HandleReader(NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:468)
-UnityEngine.Networking.NetworkConnection:HandleBytes(Byte[], Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:424)
-UnityEngine.Networking.NetworkConnection:TransportRecieve(Byte[], Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:576)
-UnityEngine.Networking.NetworkServer:OnData(NetworkConnection, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:753)
-UnityEngine.Networking.ServerSimpleWrapper:OnData(NetworkConnection, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1851)
-UnityEngine.Networking.NetworkServerSimple:HandleData(Int32, Int32, Int32, Byte) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServerSimple.cs:384)
-UnityEngine.Networking.NetworkServerSimple:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServerSimple.cs:248)
-UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:705)
-UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:655)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:1088)
- 
-(Filename: D:/LAPTOP2/Programfiler/Unity/ATeam/RetryLobby2.0/Assets/Lobby/Scripts/Lobby/LobbyPlayer.cs Line: 49)
-
-isClient: True
-UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
-UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
-UnityEngine.Logger:Log(LogType, Object)
-UnityEngine.Debug:Log(Object)
-Prototype.NetworkLobby.LobbyPlayer:OnClientEnterLobby() (at D:\LAPTOP2\Programfiler\Unity\ATeam\RetryLobby2.0\Assets\Lobby\Scripts\Lobby\LobbyPlayer.cs:50)
-UnityEngine.Networking.NetworkLobbyPlayer:OnStartClient() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkLobbyPlayer.cs:44)
-UnityEngine.Networking.NetworkIdentity:OnStartClient() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:373)
-UnityEngine.Networking.NetworkIdentity:OnStartServer(Boolean) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:350)
-UnityEngine.Networking.NetworkServer:SpawnObject(GameObject) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1317)
-UnityEngine.Networking.NetworkServer:Spawn(GameObject) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1541)
-UnityEngine.Networking.NetworkServer:FinishPlayerForConnection(NetworkConnection, NetworkIdentity, GameObject) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1036)
-UnityEngine.Networking.NetworkServer:InternalAddPlayerForConnection(NetworkConnection, GameObject, Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:969)
-UnityEngine.Networking.NetworkServer:AddPlayerForConnection(NetworkConnection, GameObject, Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:925)
-UnityEngine.Networking.NetworkLobbyManager:OnServerAddPlayer(NetworkConnection, Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkLobbyManager.cs:353)
-UnityEngine.Networking.NetworkManager:OnServerAddPlayerMessageInternal(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:869)
-UnityEngine.Networking.NetworkConnection:HandleReader(NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:468)
-UnityEngine.Networking.NetworkConnection:HandleBytes(Byte[], Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:424)
-UnityEngine.Networking.NetworkConnection:TransportRecieve(Byte[], Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:576)
-UnityEngine.Networking.NetworkServer:OnData(NetworkConnection, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:753)
-UnityEngine.Networking.ServerSimpleWrapper:OnData(NetworkConnection, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1851)
-UnityEngine.Networking.NetworkServerSimple:HandleData(Int32, Int32, Int32, Byte) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServerSimple.cs:384)
-UnityEngine.Networking.NetworkServerSimple:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServerSimple.cs:248)
-UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:705)
-UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:655)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:1088)
- 
-(Filename: D:/LAPTOP2/Programfiler/Unity/ATeam/RetryLobby2.0/Assets/Lobby/Scripts/Lobby/LobbyPlayer.cs Line: 50)
-
-isLocalPlayer: False
-UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
-UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
-UnityEngine.Logger:Log(LogType, Object)
-UnityEngine.Debug:Log(Object)
-Prototype.NetworkLobby.LobbyPlayer:OnClientEnterLobby() (at D:\LAPTOP2\Programfiler\Unity\ATeam\RetryLobby2.0\Assets\Lobby\Scripts\Lobby\LobbyPlayer.cs:51)
-UnityEngine.Networking.NetworkLobbyPlayer:OnStartClient() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkLobbyPlayer.cs:44)
-UnityEngine.Networking.NetworkIdentity:OnStartClient() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:373)
-UnityEngine.Networking.NetworkIdentity:OnStartServer(Boolean) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:350)
-UnityEngine.Networking.NetworkServer:SpawnObject(GameObject) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1317)
-UnityEngine.Networking.NetworkServer:Spawn(GameObject) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1541)
-UnityEngine.Networking.NetworkServer:FinishPlayerForConnection(NetworkConnection, NetworkIdentity, GameObject) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1036)
-UnityEngine.Networking.NetworkServer:InternalAddPlayerForConnection(NetworkConnection, GameObject, Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:969)
-UnityEngine.Networking.NetworkServer:AddPlayerForConnection(NetworkConnection, GameObject, Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:925)
-UnityEngine.Networking.NetworkLobbyManager:OnServerAddPlayer(NetworkConnection, Int16) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkLobbyManager.cs:353)
-UnityEngine.Networking.NetworkManager:OnServerAddPlayerMessageInternal(NetworkMessage) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:869)
-UnityEngine.Networking.NetworkConnection:HandleReader(NetworkReader, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:468)
-UnityEngine.Networking.NetworkConnection:HandleBytes(Byte[], Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:424)
-UnityEngine.Networking.NetworkConnection:TransportRecieve(Byte[], Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkConnection.cs:576)
-UnityEngine.Networking.NetworkServer:OnData(NetworkConnection, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:753)
-UnityEngine.Networking.ServerSimpleWrapper:OnData(NetworkConnection, Int32, Int32) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1851)
-UnityEngine.Networking.NetworkServerSimple:HandleData(Int32, Int32, Int32, Byte) (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServerSimple.cs:384)
-UnityEngine.Networking.NetworkServerSimple:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServerSimple.cs:248)
-UnityEngine.Networking.NetworkServer:InternalUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:705)
-UnityEngine.Networking.NetworkServer:Update() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:655)
-UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate() (at C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:1088)
- 
-(Filename: D:/LAPTOP2/Programfiler/Unity/ATeam/RetryLobby2.0/Assets/Lobby/Scripts/Lobby/LobbyPlayer.cs Line: 51)
 
 DontDestroyOnLoad only work for root GameObjects or components on root GameObjects.
 UnityEngine.Object:DontDestroyOnLoad(Object)

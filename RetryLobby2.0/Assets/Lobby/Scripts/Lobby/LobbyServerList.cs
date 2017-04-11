@@ -19,7 +19,7 @@ namespace Prototype.NetworkLobby
         protected int previousPage = 0;
 
         static Color OddServerColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-        static Color EvenServerColor = new Color(.99f, .99f, .99f, 1.0f);
+        static Color EvenServerColor = new Color(.94f, .94f, .94f, 1.0f);
 
         void OnEnable()
         {
