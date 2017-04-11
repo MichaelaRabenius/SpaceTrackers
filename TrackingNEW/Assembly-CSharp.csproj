@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{33892D9E-3817-9CD8-78F7-B9AC1C984C4C}</ProjectGuid>
+    <ProjectGuid>{774AAA2C-E97B-68D3-6288-A97D7A20B575}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -58,6 +58,15 @@
      <Compile Include="Assets\Lobby\Scripts\Lobby\LobbyServerEntry.cs" />
      <Compile Include="Assets\Lobby\Scripts\Lobby\LobbyServerList.cs" />
      <Compile Include="Assets\Lobby\Scripts\Lobby\LobbyTopPanel.cs" />
+     <Compile Include="Assets\Scripts\NetPlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Network\NetworkManager.cs" />
+     <Compile Include="Assets\Scripts\Network\NetworkSpacePlayer.cs" />
+     <Compile Include="Assets\Scripts\Network\gameManager.cs" />
+     <Compile Include="Assets\Scripts\Network\playerLobbyHook.cs" />
+     <Compile Include="Assets\Scripts\Network\playerManager.cs" />
+     <Compile Include="Assets\Scripts\Network\playerMovement.cs" />
+     <Compile Include="Assets\Scripts\Network\playerSetup.cs" />
+     <Compile Include="Assets\Scripts\trackingState.cs" />
      <Compile Include="Assets\Vuforia\Scripts\BackgroundPlaneBehaviour.cs" />
      <Compile Include="Assets\Vuforia\Scripts\CloudRecoBehaviour.cs" />
      <Compile Include="Assets\Vuforia\Scripts\CylinderTargetBehaviour.cs" />
@@ -93,12 +102,6 @@
      <Compile Include="Assets\Vuforia\Scripts\WireframeBehaviour.cs" />
      <Compile Include="Assets\Vuforia\Scripts\WireframeTrackableEventHandler.cs" />
      <Compile Include="Assets\Vuforia\Scripts\WordBehaviour.cs" />
-     <Compile Include="Assets\myScripts\Network\NetworkPlayerMovement.cs" />
-     <Compile Include="Assets\myScripts\cameraMovement.cs" />
-     <Compile Include="Assets\myScripts\cameraRotation.cs" />
-     <Compile Include="Assets\myScripts\getWorldSize.cs" />
-     <Compile Include="Assets\myScripts\objectsInScreenCircle.cs" />
-     <Compile Include="Assets\myScripts\trackingState.cs" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\Vuforia\Shaders\ColoredLines.shader" />
      <None Include="Assets\link.xml" />
@@ -107,8 +110,6 @@
      <None Include="Assets\Vuforia\Shaders\RenderVideoBackground.shader" />
      <None Include="Assets\readme_SDK.txt" />
      <None Include="Assets\Lobby\Instruction.txt" />
-     <None Include="Assets\Plugins\Photon3Unity3D.xml" />
-     <None Include="Assets\Plugins\release_history.txt" />
      <None Include="Assets\Vuforia\Shaders\VideoBackground.shader" />
      <None Include="Assets\StreamingAssets\QCAR\Tracking.xml" />
      <None Include="Assets\license_3rdpartynotice.txt" />
@@ -136,14 +137,8 @@
  <Reference Include="UnityEngine.VR">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
- <Reference Include="Photon3Unity3D">
- <HintPath>C:/Users/Viktor/Documents/UnityProjects/Tracking/TrackingNEW/Assets/Plugins/Photon3Unity3D.dll</HintPath>
- </Reference>
- <Reference Include="websocket-sharp">
- <HintPath>C:/Users/Viktor/Documents/UnityProjects/Tracking/TrackingNEW/Assets/Plugins/WebSocket/websocket-sharp.dll</HintPath>
- </Reference>
  <Reference Include="Vuforia.UnityExtensions">
- <HintPath>C:/Users/Viktor/Documents/UnityProjects/Tracking/TrackingNEW/Assets/Vuforia/Scripts/Internal/Vuforia.UnityExtensions.dll</HintPath>
+ <HintPath>C:/Users/Viktor/Documents/UnityProjects/Tracking/SpaceTrackers/Assets/Vuforia/Scripts/Internal/Vuforia.UnityExtensions.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -151,10 +146,6 @@
  <Reference Include="UnityEditor.iOS.Extensions.Common">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll</HintPath>
  </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{BB2E1544-7DF4-B929-23A2-BFD5A91D235A}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
