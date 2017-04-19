@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceTrackers", "Assembly-CSharp.csproj", "{774AAA2C-E97B-68D3-6288-A97D7A20B575}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceTrackers", "Assembly-CSharp-Editor.csproj", "{FC9A5A6A-943B-2270-3C44-B541E99FDF68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceTrackers", "Assembly-UnityScript-Editor-firstpass.unityproj", "{FC5962F3-A962-5DEB-81E4-7C81620C6EDE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{774AAA2C-E97B-68D3-6288-A97D7A20B575}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{774AAA2C-E97B-68D3-6288-A97D7A20B575}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{774AAA2C-E97B-68D3-6288-A97D7A20B575}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{774AAA2C-E97B-68D3-6288-A97D7A20B575}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC9A5A6A-943B-2270-3C44-B541E99FDF68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC9A5A6A-943B-2270-3C44-B541E99FDF68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC9A5A6A-943B-2270-3C44-B541E99FDF68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC9A5A6A-943B-2270-3C44-B541E99FDF68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC5962F3-A962-5DEB-81E4-7C81620C6EDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC5962F3-A962-5DEB-81E4-7C81620C6EDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC5962F3-A962-5DEB-81E4-7C81620C6EDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC5962F3-A962-5DEB-81E4-7C81620C6EDE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
