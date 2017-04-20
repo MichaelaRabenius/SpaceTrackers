@@ -15,6 +15,10 @@ namespace Prototype.NetworkLobby
         public InputField ipInput;
         public InputField matchNameInput;
 
+		public void Start() {
+			ipInput.keyboardType = TouchScreenKeyboardType.NumbersAndPunctuation;
+		}
+
         public void OnEnable()
         {
             lobbyManager.topPanel.ToggleVisibility(true);

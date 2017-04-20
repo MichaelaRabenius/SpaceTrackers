@@ -236,6 +236,8 @@ namespace Prototype.NetworkLobby
         {
             base.OnStartHost();
 
+			networkAddress = Network.player.ipAddress;
+
             ChangeTo(lobbyPanel);
             backDelegate = StopHostClbk;
             SetServerInfo("Hosting", networkAddress);
